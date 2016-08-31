@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MathQuiz</string>
+    <string name="question_1">is 29 a prime Number</string>
+    <string name="question_2">is 43 a prime Number</string>
+    <string name="question_3">is 79 a prime Number</string>
+    <string name="question_4">is 101 a prime Number</string>
+    <string name="true_text">True</string>
+    <string name="false_text">False</string>
+    <string name="true_toast">Corrct</string>
+    <string name="next_button">Next</string>
+    <string name="previous_button">Previous</string>
+    <string name="false_toast">Wrong choice</string>
+</resources>
