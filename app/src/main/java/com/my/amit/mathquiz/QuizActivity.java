@@ -3,9 +3,12 @@ package com.my.amit.mathquiz;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+//Import the android.util.Log class for logiing
+import android.util.Log;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -14,6 +17,11 @@ public class QuizActivity extends AppCompatActivity {
     private Button mNextQuestion;
     private Button mPreviousQuestion;
     private TextView mQuestionTextView;
+
+//    definding the tag contant below to start the logging
+
+    private static final String TAG = "QuizActivity";
+
 
     private QuestionBank[] myQuestionBank = new QuestionBank[]{
             new QuestionBank(R.string.question_1, true),
@@ -27,6 +35,8 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d(TAG, "Inside onCreate");
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text);
@@ -79,10 +89,44 @@ public class QuizActivity extends AppCompatActivity {
 
         });
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "Inside onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "Inside onResume");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "Inside onStart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "Inside onDestroy");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "Inside onStop");
+
+    }
+
+
     private void updateQuestion(){
         int question = myQuestionBank[currentIndex].getQuestion();
         mQuestionTextView.setText(question);
     }
+
 
     private void checkAnswer(boolean userPressedTrue){
         boolean answer = myQuestionBank[currentIndex].isTrueQuestion();
