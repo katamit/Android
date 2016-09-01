@@ -21,6 +21,7 @@ public class QuizActivity extends AppCompatActivity {
 //    definding the tag contant below to start the logging
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "Index";
 
 
     private QuestionBank[] myQuestionBank = new QuestionBank[]{
@@ -40,6 +41,11 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text);
+
+        if (savedInstanceState != null){
+            currentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
         updateQuestion();
 
         mTrueButton = (Button) findViewById(R.id.true_button);
@@ -121,6 +127,18 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+
+
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG,"indised onSaveInstaneState method");
+
+        savedInstanceState.putInt(KEY_INDEX, currentIndex);
+
+
+    }
 
     private void updateQuestion(){
         int question = myQuestionBank[currentIndex].getQuestion();
