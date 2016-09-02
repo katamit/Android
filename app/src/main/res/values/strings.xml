@@ -10,5 +10,6 @@
     <string name="true_toast">Corrct</string>
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
+    <string name="cheat_button">Cheat</string>
     <string name="false_toast">Wrong choice</string>
 </resources>
