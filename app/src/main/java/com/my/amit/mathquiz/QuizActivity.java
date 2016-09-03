@@ -78,6 +78,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currentIndex = (currentIndex +1)% myQuestionBank.length;
+                mCheated = false;
                 updateQuestion();
 
             }
@@ -90,12 +91,12 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (currentIndex > 0) {
                     currentIndex = (currentIndex - 1) % myQuestionBank.length;
-                    updateQuestion();
                 }
                 else {
                     currentIndex = myQuestionBank.length -1;
-                    updateQuestion();
                 }
+                mCheated = false;
+                updateQuestion();
 
             }
 
@@ -110,7 +111,8 @@ public class QuizActivity extends AppCompatActivity {
 //                Intent i = new Intent(QuizActivity.this, CheatActivity.class);
 //                startActivity(i);
 
-                Intent i = CheatActivity.newIntent(QuizActivity.this, currentIndex);
+                boolean b = myQuestionBank[currentIndex].isTrueQuestion();
+                Intent i = CheatActivity.newIntent(QuizActivity.this, b);
 //                startActivity(i);
                 startActivityForResult(i,REQUEST_CODE_CHEAT);
 
@@ -187,7 +189,11 @@ public class QuizActivity extends AppCompatActivity {
         boolean answer = myQuestionBank[currentIndex].isTrueQuestion();
 
         int messageId = 0;
-        if(answer == userPressedTrue){
+
+        if (mCheated){
+            messageId = R.string.cheat_toast;
+        }
+        else if(answer == userPressedTrue){
             messageId = R.string.true_toast;
 
         }

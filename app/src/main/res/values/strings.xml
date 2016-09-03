@@ -7,9 +7,15 @@
     <string name="question_4">is 101 a prime Number</string>
     <string name="true_text">True</string>
     <string name="false_text">False</string>
-    <string name="true_toast">Corrct</string>
+    <string name="false_toast">Wrong</string>
+    <string name="cheat_toast">You have cheated !!!</string>
+    <string name="true_toast">Correct</string>
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
     <string name="cheat_button">Cheat</string>
-    <string name="false_toast">Wrong choice</string>
+
+
+
+    <string name="cheat_warning_text">You are about to cheat</string>
+    <string name="show_cheat_button">Show Cheat</string>
 </resources>
